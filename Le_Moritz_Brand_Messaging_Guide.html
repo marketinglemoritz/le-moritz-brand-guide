@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Moritz — Brand Messaging Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --dark: #241A2E;
+    --dark-soft: #3A2A47;
+    --cream: #FAF8F4;
+    --plum: #3E2145;
+    --plum-soft: #6B4E70;
+    --lavender: #B8AEC6;
+    --text-dark: #3A3540;
+    --text-muted: #7A7383;
+    --border: #E4DED8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; min-width: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    background: var(--cream);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img, svg { max-width: 100%; }
+  h1,h2,h3, .serif { font-family: 'Playfair Display', serif; }
+  .kicker {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(36,26,46,0.94);
+    backdrop-filter: blur(6px);
+    padding: 16px 0;
+  }
+  nav .container { display:flex; align-items:center; justify-content:space-between; flex-wrap: wrap; gap: 10px; }
+  .nav-logo-name { color: #fff; font-family:'Playfair Display', serif; font-size: 16px; letter-spacing: 2px; }
+  .nav-logo-tag { font-family:'Inter',sans-serif; font-size:8px; letter-spacing:3px; color: var(--lavender); font-weight:400; margin-top:2px; }
+  .nav-links { display:flex; gap: 22px; flex-wrap: wrap; }
+  .nav-links a {
+    color: var(--lavender);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    transition: color .2s ease;
+    white-space: nowrap;
+  }
+  .nav-links a:hover { color: #fff; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    background: var(--dark);
+    color: #fff;
+    padding: 200px 0 130px;
+    text-align: center;
+  }
+  .hero-logo { margin-bottom: 40px; }
+  .hero-logo-name { font-family: 'Playfair Display', serif; font-size: 20px; letter-spacing: 3px; }
+  .hero-logo-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--lavender);
+    margin-top: 6px;
+    font-weight: 400;
+  }
+  .hero-title {
+    font-size: 46px;
+    font-weight: 500;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .hero-tagline {
+    color: var(--lavender);
+    letter-spacing: 5px;
+    font-size: 13px;
+    margin-top: 24px;
+    text-transform: uppercase;
+  }
+
+  /* ---------- LIGHT SECTIONS ---------- */
+  .light-section { padding: 100px 0; }
+  .light-section.alt { background: #F3EEE6; }
+  .section-head {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 22px;
+    margin-bottom: 48px;
+  }
+  .section-head .kicker { color: var(--text-muted); }
+  .section-head h2 { font-size: 30px; font-weight: 500; color: var(--plum); margin-top: 8px; }
+
+  /* pro-aging / proposito paragraphs */
+  .prose { max-width: 720px; }
+  .prose p { font-size: 17px; margin-bottom: 22px; color: var(--text-dark); }
+  .prose p:last-child { margin-bottom: 0; }
+
+  .quote-block {
+    max-width: 760px;
+  }
+  .quote-block p {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    line-height: 1.5;
+    color: var(--plum);
+  }
+
+  /* ---------- POSICIONAMENTO (dark statement) ---------- */
+  .statement-section {
+    background: var(--dark);
+    color: #fff;
+    padding: 150px 0;
+    text-align: center;
+  }
+  .statement-kicker { color: var(--lavender); letter-spacing: 5px; font-size: 13px; margin-bottom: 28px; }
+  .statement-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 500;
+    max-width: 780px;
+    margin: 0 auto;
+    line-height: 1.4;
+  }
+
+  /* ---------- PILARES ---------- */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 0 40px;
+  }
+  .pillar {
+    padding: 0 0 0 0;
+    border-top: 2px solid var(--plum);
+    padding-top: 24px;
+  }
+  .pillar + .pillar { }
+  .pillar-num { font-size: 12px; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 14px; }
+  .pillar h3 { font-size: 19px; color: var(--plum); font-weight: 500; margin-bottom: 12px; }
+  .pillar p { font-size: 14.5px; color: var(--text-dark); }
+
+  /* ---------- TOM DE VOZ ---------- */
+  .voice-list { display: flex; flex-direction: column; }
+  .voice-item {
+    display: grid;
+    grid-template-columns: minmax(0,240px) minmax(0,1fr);
+    gap: 24px;
+    padding: 26px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+  }
+  .voice-item:first-child { border-top: 1px solid var(--border); }
+  .voice-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--plum);
+    font-weight: 500;
+  }
+  .voice-item p { font-size: 15px; color: var(--text-dark); }
+
+  /* ---------- VOCABULARIO ---------- */
+  .vocab-note { color: var(--text-muted); font-size: 14px; margin-bottom: 28px; }
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 14px;
+  }
+  .vocab-chip {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--plum);
+    padding: 16px 20px;
+    font-size: 15px;
+    color: var(--plum);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--dark);
+    color: var(--lavender);
+    text-align: center;
+    padding: 70px 0;
+  }
+  footer .hero-logo { margin-bottom: 10px; }
+  footer p { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+
+  @media (max-width: 860px) {
+    .hero-title { font-size: 32px; }
+    .statement-text { font-size: 28px; }
+    .quote-block p { font-size: 21px; }
+    .pillars-grid { grid-template-columns: minmax(0,1fr); gap: 36px; }
+    .voice-item { grid-template-columns: minmax(0,1fr); gap: 8px; }
+    .vocab-grid { grid-template-columns: minmax(0,1fr); }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 480px) {
+    .hero-title { font-size: 26px; }
+    .statement-text { font-size: 22px; }
+    .light-section { padding: 70px 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-logo">
+      <div class="nav-logo-name">LE MORITZ</div>
+      <div class="nav-logo-tag">BRAND MESSAGING GUIDE</div>
+    </div>
+    <div class="nav-links">
+      <a href="#pro-aging">Pro-aging</a>
+      <a href="#proposito">Propósito</a>
+      <a href="#posicionamento">Posicionamento</a>
+      <a href="#pilares">Pilares</a>
+      <a href="#tom-de-voz">Tom de Voz</a>
+      <a href="#vocabulario">Vocabulário</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-logo">
+      <div class="hero-logo-name">LE MORITZ</div>
+      <div class="hero-logo-tag">PRO-AGING SCIENCE & BEAUTY</div>
+    </div>
+    <h1 class="hero-title">Brand Messaging Guide</h1>
+    <div class="hero-tagline">Posicionamento e Mensagem de Marca</div>
+  </div>
+</header>
+
+<section class="light-section" id="pro-aging">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">O que é</div>
+      <h2>O que é pro-aging e por que nos posicionamos dessa forma</h2>
+    </div>
+    <div class="prose">
+      <p>Pro-aging é a filosofia de encarar o envelhecimento como algo natural, que deve ser celebrado e não combatido. Diferente do anti-aging, que trata os sinais da idade como um problema a ser corrigido ou revertido, o pro-aging valoriza a beleza que vem com o tempo e cuida da pele madura para realçar sua beleza natural, sem tentar esconder a qualquer custo os sinais que a maturidade traz.</p>
+      <p>A mulher madura precisa de cuidado pensado para ela desde o início, desenvolvido para as necessidades dessa fase da vida. Grande parte do mercado ainda trata o envelhecimento como um problema a ser corrigido, reforçando estereótipos que não refletem quem essa mulher realmente é. Por isso, na Le Moritz reforçamos o movimento pro-aging, trazendo visibilidade e celebrando a beleza madura.</p>
+    </div>
+  </div>
+</section>
+
+<section class="light-section alt" id="proposito">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Propósito</div>
+      <h2>Por que a marca existe</h2>
+    </div>
+    <div class="quote-block">
+      <p>“O nosso propósito é valorizar a maturidade feminina. Por isso, a Le Moritz nasceu para celebrar a beleza da mulher madura, deixando de lado todos os estereótipos relacionados ao envelhecimento e desenvolvendo produtos especializados nas necessidades reais de quem vive essa fase da vida.”</p>
+    </div>
+  </div>
+</section>
+
+<section class="statement-section" id="posicionamento">
+  <div class="container">
+    <div class="statement-kicker">POSICIONAMENTO</div>
+    <div class="statement-text">Primeira marca pro-aging brasileira especialista em beleza madura.</div>
+  </div>
+</section>
+
+<section class="light-section" id="pilares">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Pilares de mensagem</div>
+      <h2>Temas que sustentam a narrativa de posicionamento</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <h3>Especialista em beleza madura</h3>
+        <p>Fórmulas desenvolvidas cientificamente para atender as necessidades da pele madura.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <h3>Tecnologia pro-aging</h3>
+        <p>Cada produto foi criado para cuidar e realçar a beleza natural que a maturidade traz.</p>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <h3>Indicado por dermatologistas</h3>
+        <p>Ativos e fórmulas testados e indicados por dermatologistas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light-section alt" id="tom-de-voz">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Tom de voz</div>
+      <h2>Personalidade da marca</h2>
+    </div>
+    <div class="voice-list">
+      <div class="voice-item">
+        <h3>Confiante</h3>
+        <p>Falamos com autoridade porque temos respaldo científico e dermatológico.</p>
+      </div>
+      <div class="voice-item">
+        <h3>Celebrativa</h3>
+        <p>Damos foco ao cuidado e valorização, enaltecendo a beleza natural da pele madura.</p>
+      </div>
+      <div class="voice-item">
+        <h3>Acolhedora</h3>
+        <p>Damos visibilidade e tratamos a mulher madura como protagonista.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light-section" id="vocabulario">
+  <div class="container">
+    <div class="section-head">
+      <div class="kicker">Vocabulário</div>
+      <h2>Sempre mencionamos</h2>
+    </div>
+    <div class="vocab-grid">
+      <div class="vocab-chip">Primeira marca pró-aging brasileira</div>
+      <div class="vocab-chip">Especialista em pele madura</div>
+      <div class="vocab-chip">Celebra a beleza madura</div>
+      <div class="vocab-chip">Desenvolvido especificamente para a pele madura</div>
+      <div class="vocab-chip">Realça a beleza natural</div>
+      <div class="vocab-chip">Testada e indicada por dermatologistas</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="hero-logo">
+    <div class="hero-logo-name">LE MORITZ</div>
+    <div class="hero-logo-tag">PRO-AGING SCIENCE & BEAUTY</div>
+  </div>
+  <p>Brand Messaging Guide</p>
+</footer>
+
+</body>
+</html>
